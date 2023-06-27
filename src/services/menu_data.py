@@ -2,6 +2,7 @@ import csv
 from models.dish import Dish
 from models.ingredient import Ingredient
 
+
 # Req 3
 class MenuData:
     def __init__(self, source_path: str) -> None:
@@ -18,9 +19,9 @@ class MenuData:
                 ingredient = row["ingredient"]
                 recipe_amount = int(row["recipe_amount"])
 
-                new_ingredient = Ingredient(ingredient)
+                new_ing = Ingredient(ingredient)
                 new_dish = self._check_dish(dish, price)
-                new_dish.add_ingredient_dependency(new_ingredient, recipe_amount)
+                new_dish.add_ingredient_dependency(new_ing, recipe_amount)
 
     def _check_dish(self, dish: str, price: float) -> Dish:
         for self_dish in self.dishes:
